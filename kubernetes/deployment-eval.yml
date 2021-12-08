@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: fraud-detection-deployment-3
+  labels:
+    app: fraud-detection-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: fraud-detection-app
+  template:
+    metadata:
+      labels:
+        app: fraud-detection-app
+    spec:
+      containers:
+      - name: project-api-container
+        image: ali07datascientest/fraud-project:fastapi.0.2
+        ports:
+        - containerPort: 8080
+
+      - name: api-is-functional-container
+        image:  ali07datascientest/is-functional-test:0.2
+        ports:
+        - containerPort: 8888
+
+      - name: api-tests-container
+        image:  ali07datascientest/fraud-project-tests:0.2
+        ports:
+        - containerPort: 8088
