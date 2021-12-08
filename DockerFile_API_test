@@ -1,0 +1,12 @@
+FROM python:latest
+
+RUN pip install --no-cache-dir --upgrade pip && \
+    pip install --no-cache-dir requests
+    
+ADD API_tests.py ./
+
+EXPOSE 8080
+
+ENV LOG 1
+
+CMD python3 API_tests.py

@@ -1,0 +1,11 @@
+fastapi
+uvicorn
+pandas
+numpy
+matplotlib
+seaborn
+sklearn
+datetime
+pickle-mixin
+imblearn
+catboost
